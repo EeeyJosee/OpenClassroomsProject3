@@ -1,0 +1,254 @@
+@import 'vendors/normalize';
+
+/* <!------------------------------------------------------------------> */
+/* <!----------------------------abstracts-----------------------------> */
+/* <!------------------------------------------------------------------> */
+$font-family: (
+    title:Shrikhand, 
+    text:Roboto
+);
+
+$font-size: (
+    logo:7rem, 
+    heading:5rem, 
+    project-heading:4rem, 
+    label:2rem
+);
+
+// Color scheme used for the project
+$color-scheme: (
+    color-primary: #9356DC,
+    color-secondary: #FF79DA,
+    color-tertiary: #99E2D0,
+    color-accent: #f5f5f5,
+    color-white: #fff,
+    color-invalid: #DB464B,
+);
+
+// Color palettes used for different states
+$txt-input-palette: (
+    active: (
+        bg: map-get($color-scheme, color-primary),
+        border: map-get($color-scheme, color-primary),
+        txt: map-get($color-scheme, color-white),
+    ),
+    focus: (
+        bg: map-get($color-scheme, color-primary),
+        border: map-get($color-scheme, color-primary),
+        txt: map-get($color-scheme, color-white)
+    ),
+    invalid: (
+        bg: map-get($color-scheme, color-invalid),
+        border: map-get($color-scheme, color-white),
+        txt: map-get($color-scheme, color-white)
+    )
+);
+
+@mixin txt-input-palette($palettes) {
+    @each $state, $palette in $palettes{
+        &:#{$state}{
+            border: map-get($palette, border);
+            background-color: map-get($palette, bg);
+            color: map-get($palette, txt);
+        }
+    }
+}
+
+// a {
+//     @include txt-input-palette($txt-input-palette);
+//     &:visited {
+//         color: map-get($color-scheme, color-white);
+//     }
+// }
+
+/* <!------------------------------------------------------------------> */
+/* <!----------------------------layout--------------------------------> */
+/* <!------------------------------------------------------------------> */
+html {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    -webkit-box-sizing: inherit;
+    -moz-box-sizing: inherit;
+    box-sizing: inherit;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+body { 
+    max-width: 1440px;
+    margin: 20px auto 0px auto;
+    overflow-x: hidden;
+    font-family: map-get($font-family, text), Helvetica;
+    background-color: map-get($color-scheme, color-white);
+}
+
+.title {
+    font-family: map-get($font-family, title), Arial;
+    margin: 0px 0px 10px 0px;
+}
+
+/* <!----------------------------Page Start----------------------------> */
+header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+    box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.15);
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom: 20px;
+    margin-bottom: 10px;
+    background-color: map-get($color-scheme, color-accent);
+
+    .__location {
+        padding: 5px 0px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        font-weight: 600;
+        color: #3f3f3f;
+        background-color: darken($color: map-get($color-scheme, color-accent), $amount: 5%);
+        
+        .__location-icon {
+            margin: 8px 15px 8px 0px;
+        }
+        p {
+            margin: 8px 0px;
+        }
+    }
+    .__explore-restaurants {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        max-width: 400px;
+
+        h2 {
+            margin-top: 36px;
+            text-align: center;
+            width: 100%;
+        }
+        p {
+            text-align: center;
+            max-width: 275px;
+            width: 100%;
+        }
+
+        .__explore-button {
+            background-color: map-get($color-scheme, color-primary);
+            color: map-get($color-scheme, color-white);
+            border-radius: 25px;
+            padding: 15px 20px;
+            margin: 10px;
+            border: none;
+        }
+    }
+}
+
+/* <!----------------------------Page Center---------------------------> */
+
+.app-instructions {
+    width: 100%;
+    margin: 10px 0px;
+    padding-bottom: 20px;
+
+    h2 {
+        margin-top: 36px;
+        margin-left: 20px;
+    }
+}
+
+.__instruction-cards {
+    background-color: map-get($color-scheme, color-accent);
+    border-radius: 18px;
+    padding: 22px 20px;
+    margin: 20px 20px 20px 28px;
+    font-weight: 600;
+    box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.1);
+
+    .__numbered-instructions {
+        font-weight: 400;
+        width: 0px;
+        padding: 2.5px 7.5px;
+        border-radius: 60px;
+        color: map-get($color-scheme, color-white);
+        background-color: map-get($color-scheme, color-primary);
+        position: relative;
+        right: 28px;
+    }
+    .__instruction-symbols {
+        color: darken($color: map-get($color-scheme, color-accent), $amount: 40%);
+        position: relative;
+        right: 14px;
+
+    }
+    &:hover {
+        background-color: lighten($color: map-get($color-scheme, color-primary), $amount: 35%);
+        .__instruction-symbols{
+                color: map-get($color-scheme, color-primary);
+            }
+    }
+}
+
+main {
+    margin: 10px 0px 0px;
+    padding: 20px 0px 60px;
+    width: 100%;
+    background-color: map-get($color-scheme, color-accent);
+    
+    h2 {
+        padding-left: 20px;
+    }
+}
+
+.restaurants {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 20px;
+}
+
+.image-container {
+    background-color: map-get($color-scheme, color-white);
+    border-radius: 10px;
+    width: 90%;
+    box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.15);
+
+    .images {
+        width: 100%;
+        height: 100px;
+        object-fit:cover;
+        border-radius: 10px 10px 0px 0px;
+    }
+    h3 {
+        margin: 10px 0px 0px 10px;
+    }
+    p {
+        margin: 0px 0px 10px 10px;
+    }
+}
+
+/* <!----------------------------Page End------------------------------> */
+footer {
+    background-color: darken($color:map-get($color-scheme, color-accent), $amount:70%);
+    color: map-get($color-scheme, color-white);
+    padding-top: 20px;
+    ul {
+        margin-bottom: 0px;
+        padding-bottom: 16px
+    }
+
+    a {
+        @include txt-input-palette($txt-input-palette);
+        &:visited {
+            color: map-get($color-scheme, color-white);
+        }
+    }
+}
