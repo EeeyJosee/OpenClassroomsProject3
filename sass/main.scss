@@ -22,44 +22,31 @@ $color-scheme: (
     color-tertiary: #99E2D0,
     color-accent: #f5f5f5,
     color-white: #fff,
-    color-invalid: #DB464B,
+    color-default: #000000,
 );
 
 // Color palettes used for different states
 $txt-input-palette: (
     active: (
         bg: map-get($color-scheme, color-primary),
-        border: map-get($color-scheme, color-primary),
-        txt: map-get($color-scheme, color-white),
+        txt: darken($color: map-get($color-scheme, color-primary), $amount: 20%)
     ),
-    focus: (
-        bg: map-get($color-scheme, color-primary),
-        border: map-get($color-scheme, color-primary),
-        txt: map-get($color-scheme, color-white)
+    hover: (
+        bg: lighten($color: map-get($color-scheme, color-primary), $amount: 35%)
     ),
-    invalid: (
-        bg: map-get($color-scheme, color-invalid),
-        border: map-get($color-scheme, color-white),
-        txt: map-get($color-scheme, color-white)
+    visited: (
+        txt: map-get($color-scheme, color-default)
     )
 );
 
 @mixin txt-input-palette($palettes) {
     @each $state, $palette in $palettes{
         &:#{$state}{
-            border: map-get($palette, border);
             background-color: map-get($palette, bg);
             color: map-get($palette, txt);
         }
     }
 }
-
-// a {
-//     @include txt-input-palette($txt-input-palette);
-//     &:visited {
-//         color: map-get($color-scheme, color-white);
-//     }
-// }
 
 /* <!------------------------------------------------------------------> */
 /* <!----------------------------layout--------------------------------> */
@@ -153,22 +140,21 @@ nav {
 }
 
 /* <!----------------------------Page Center---------------------------> */
+.instruction-text {
+    margin-top: 36px;
+    margin-left: 20px;
+}
 
 .app-instructions {
     width: 100%;
     margin: 10px 0px;
     padding-bottom: 20px;
-
-    h2 {
-        margin-top: 36px;
-        margin-left: 20px;
-    }
 }
 
 .__instruction-cards {
     background-color: map-get($color-scheme, color-accent);
     border-radius: 18px;
-    padding: 22px 20px;
+    padding: 28px 20px 22px 20px;
     margin: 20px 20px 20px 28px;
     font-weight: 600;
     box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.1);
@@ -190,7 +176,7 @@ nav {
 
     }
     &:hover {
-        background-color: lighten($color: map-get($color-scheme, color-primary), $amount: 35%);
+        @include txt-input-palette($txt-input-palette);
         .__instruction-symbols{
                 color: map-get($color-scheme, color-primary);
             }
@@ -220,15 +206,24 @@ main {
     border-radius: 10px;
     width: 90%;
     box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.15);
+    @include txt-input-palette($txt-input-palette);
 
     .images {
         width: 100%;
-        height: 100px;
+        height: 170px;
         object-fit:cover;
         border-radius: 10px 10px 0px 0px;
     }
     h3 {
         margin: 10px 0px 0px 10px;
+        display: flex;
+        justify-content: space-between;
+        
+        .__favorite-icon::before {
+            position: relative;
+            right: 20px;
+            top: 15px;
+        }
     }
     p {
         margin: 0px 0px 10px 10px;
@@ -240,15 +235,107 @@ footer {
     background-color: darken($color:map-get($color-scheme, color-accent), $amount:70%);
     color: map-get($color-scheme, color-white);
     padding-top: 20px;
-    ul {
-        margin-bottom: 0px;
-        padding-bottom: 16px
+    
+    h2 {
+        padding-left: 20px;
+        font-size: 17px;
     }
+    ul {
+        padding: 0px 0px 16px 20px;
+        margin-bottom: 0px;
+        font-size: 15px;
+    }
+    li{
+        margin: 8px 0px;
 
+        .__footer-icon {
+            width: 15px;
+            padding-right: 20px;
+            font-size:x-small;
+        }
+    }
     a {
-        @include txt-input-palette($txt-input-palette);
         &:visited {
             color: map-get($color-scheme, color-white);
         }
     }
 }
+
+  /* <!----------------------------------------------------------------> */
+  /* <!-------------------------Window Sizes---------------------------> */
+  /* <!----------------------------------------------------------------> */
+
+  @media all and (min-width: 768px) {
+    .app-instructions {
+        display: flex;
+        flex: wrap;
+        justify-content: center;
+
+        .__instruction-cards {
+            // width: 22%;
+        }
+    }
+
+    .restaurants{
+        justify-content: space-evenly;
+        flex-direction: row;
+    }
+
+    .image-container{
+        width: 20%;
+
+        .__favorite-icon {
+            position: relative;
+            top: 30px;
+        }
+    }
+  }
+
+/* <!----------------------------------------------------------------> */
+  @media all and (min-width: 992px) {
+    main {
+        padding-bottom: 30px;
+    }
+
+    .__instruction-cards {
+        width: 22%;
+    }
+
+    .restaurants{
+        flex-direction: row;
+        row-gap: 50px;
+        margin: 0px 60px;
+    }
+
+    .image-container{
+        width: 40%;
+
+        .__favorite-icon {
+            position: relative;
+            right: 5px;
+            top: 2px;
+        }
+    }
+
+    footer {
+        display: flex;
+        justify-content: flex-end;
+        column-gap: 5%;
+        padding: 35px 0px 5px;
+
+        .footer-title {
+            display: flex;
+            align-items: center;
+            margin: 0px 60px 0px 0px;
+            padding: 0px;
+            order: 1;
+        }
+        ul {
+            display: flex;
+            justify-content: right;
+            width: 80%;
+            column-gap: 3%;
+        }
+    }
+  }
+
