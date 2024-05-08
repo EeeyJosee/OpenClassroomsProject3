@@ -4,15 +4,8 @@
 /* <!----------------------------abstracts-----------------------------> */
 /* <!------------------------------------------------------------------> */
 $font-family: (
-    title:Shrikhand, 
+    title:Shrikhand,
     text:Roboto
-);
-
-$font-size: (
-    logo:7rem, 
-    heading:5rem, 
-    project-heading:4rem, 
-    label:2rem
 );
 
 // Color scheme used for the project
@@ -23,27 +16,23 @@ $color-scheme: (
     color-accent: #f5f5f5,
     color-white: #fff,
     color-default: #000000,
+    color-gradient: linear-gradient(0deg, #9356DC 0%, #FF79DA 100%)
 );
 
 // Color palettes used for different states
 $txt-input-palette: (
-    active: (
-        bg: map-get($color-scheme, color-primary),
-        txt: darken($color: map-get($color-scheme, color-primary), $amount: 20%)
-    ),
-    hover: (
-        bg: lighten($color: map-get($color-scheme, color-primary), $amount: 35%)
-    ),
-    visited: (
-        txt: map-get($color-scheme, color-default)
-    )
+    active: (bg: map-get($color-scheme, color-primary),
+        txt: darken($color: map-get($color-scheme, color-primary), $amount: 20%)),
+    hover: (bg: lighten($color: map-get($color-scheme, color-primary), $amount: 35%)),
+    visited: (txt: map-get($color-scheme, color-default)),
 );
 
 @mixin txt-input-palette($palettes) {
-    @each $state, $palette in $palettes{
-        &:#{$state}{
+    @each $state, $palette in $palettes {
+        &:#{$state} {
             background-color: map-get($palette, bg);
             color: map-get($palette, txt);
+            transition: .35s;
         }
     }
 }
@@ -57,7 +46,9 @@ html {
     box-sizing: border-box;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
     -webkit-box-sizing: inherit;
     -moz-box-sizing: inherit;
     box-sizing: inherit;
@@ -65,7 +56,7 @@ html {
     text-decoration: none;
 }
 
-body { 
+body {
     max-width: 1440px;
     margin: 20px auto 0px auto;
     overflow-x: hidden;
@@ -79,14 +70,13 @@ body {
 }
 
 /* <!----------------------------Page Start----------------------------> */
-header {
+.header {
     display: flex;
     justify-content: center;
     margin-bottom: 5px;
-    box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.15);
 }
 
-nav {
+.nav {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -94,7 +84,7 @@ nav {
     margin-bottom: 10px;
     background-color: map-get($color-scheme, color-accent);
 
-    .__location {
+    .nav__location {
         padding: 5px 0px;
         display: flex;
         flex-wrap: wrap;
@@ -103,63 +93,74 @@ nav {
         font-weight: 600;
         color: #3f3f3f;
         background-color: darken($color: map-get($color-scheme, color-accent), $amount: 5%);
-        
-        .__location-icon {
+        box-shadow: inset 0px 2px 4px 0px rgba(0, 0, 0, 0.227);
+
+        .nav__location-icon {
             margin: 8px 15px 8px 0px;
         }
+
         p {
             margin: 8px 0px;
         }
     }
-    .__explore-restaurants {
+
+    .nav__explore-restaurants {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         max-width: 400px;
 
-        h2 {
-            margin-top: 36px;
+        .nav__header {
+            margin: 36px 0px 16px;
             text-align: center;
             width: 100%;
+            font-weight: 800;
         }
+
         p {
             text-align: center;
             max-width: 275px;
             width: 100%;
         }
 
-        .__explore-button {
-            background-color: map-get($color-scheme, color-primary);
+        .nav__explore-button {
+            background: map-get($color-scheme, color-gradient);
             color: map-get($color-scheme, color-white);
+            box-shadow: 0px 6px 7px 0px rgba(0, 0, 0, 0.227);
             border-radius: 25px;
             padding: 15px 20px;
             margin: 10px;
             border: none;
+            cursor: pointer;
         }
     }
 }
 
 /* <!----------------------------Page Center---------------------------> */
+.header-text {
+    margin-left: 5%;
+}
+
 .instruction-text {
     margin-top: 36px;
     margin-left: 20px;
 }
 
-.app-instructions {
+.instructions {
     width: 100%;
     margin: 10px 0px;
     padding-bottom: 20px;
 }
 
-.__instruction-cards {
+.instructions__cards {
     background-color: map-get($color-scheme, color-accent);
     border-radius: 18px;
     padding: 28px 20px 22px 20px;
-    margin: 20px 20px 20px 28px;
+    margin: 20px 20px 20px 20px;
     font-weight: 600;
     box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.1);
 
-    .__numbered-instructions {
+    .instructions__numbered {
         font-weight: 400;
         width: 0px;
         padding: 2.5px 7.5px;
@@ -167,31 +168,31 @@ nav {
         color: map-get($color-scheme, color-white);
         background-color: map-get($color-scheme, color-primary);
         position: relative;
-        right: 28px;
+        right: 31px;
     }
-    .__instruction-symbols {
+
+    .instructions__symbols {
         color: darken($color: map-get($color-scheme, color-accent), $amount: 40%);
         position: relative;
         right: 14px;
+        font-size: 18px;
 
     }
+
     &:hover {
         @include txt-input-palette($txt-input-palette);
-        .__instruction-symbols{
-                color: map-get($color-scheme, color-primary);
-            }
+
+        .instructions__symbols {
+            color: map-get($color-scheme, color-primary);
+        }
     }
 }
 
-main {
+.main {
     margin: 10px 0px 0px;
     padding: 20px 0px 60px;
     width: 100%;
     background-color: map-get($color-scheme, color-accent);
-    
-    h2 {
-        padding-left: 20px;
-    }
 }
 
 .restaurants {
@@ -201,141 +202,196 @@ main {
     row-gap: 20px;
 }
 
-.image-container {
+.restaurants__card {
     background-color: map-get($color-scheme, color-white);
-    border-radius: 10px;
+    border-radius: 15px;
     width: 90%;
     box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.15);
+    position: relative;
+    color: #000000;
     @include txt-input-palette($txt-input-palette);
 
-    .images {
+    .restaurants_new-tag {
+        background-color: map-get($color-scheme, color-tertiary);
+        color: darken($color: map-get($color-scheme, color-tertiary), $amount: 40%);
+        font-weight: 500;
+        padding: 5px 7%;
+        border-radius: 2px;
+        position: absolute;
+        left: 73%;
+        top: 15px;
+    }
+
+    .restaurants__images {
         width: 100%;
         height: 170px;
-        object-fit:cover;
-        border-radius: 10px 10px 0px 0px;
+        object-fit: cover;
+        border-radius: 15px 15px 0px 0px;
     }
+
     h3 {
         margin: 10px 0px 0px 10px;
         display: flex;
         justify-content: space-between;
-        
-        .__favorite-icon::before {
-            position: relative;
-            right: 20px;
-            top: 15px;
-        }
     }
+
     p {
         margin: 0px 0px 10px 10px;
+    }
+
+    .favorite__icon {
+        position: absolute;
+        right: 42px;
+        bottom: 42px;
+
+        &:hover {
+            .full-heart {
+                opacity: 1;
+            }
+        }
+
+        .empty-heart,
+        .full-heart {
+            position: absolute;
+            font-size: 22px;
+        }
+
+        .full-heart {
+            opacity: 0;
+            transition: .35s;
+            background: linear-gradient(0deg, #9356DC 0%, #FF79DA 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
     }
 }
 
 /* <!----------------------------Page End------------------------------> */
-footer {
-    background-color: darken($color:map-get($color-scheme, color-accent), $amount:70%);
+.footer {
+    background-color: darken($color: map-get($color-scheme, color-accent), $amount: 78%);
     color: map-get($color-scheme, color-white);
     padding-top: 20px;
-    
-    h2 {
+
+    .footer__title {
         padding-left: 20px;
         font-size: 17px;
     }
+
     ul {
         padding: 0px 0px 16px 20px;
         margin-bottom: 0px;
         font-size: 15px;
     }
-    li{
+
+    li {
         margin: 8px 0px;
 
-        .__footer-icon {
+        .footer__icon {
             width: 15px;
             padding-right: 20px;
-            font-size:x-small;
+            font-size: x-small;
         }
     }
+
     a {
-        &:visited {
-            color: map-get($color-scheme, color-white);
-        }
+        color: map-get($color-scheme, color-white);
     }
 }
 
-  /* <!----------------------------------------------------------------> */
-  /* <!-------------------------Window Sizes---------------------------> */
-  /* <!----------------------------------------------------------------> */
+/* <!----------------------------------------------------------------> */
+/* <!-------------------------Window Sizes---------------------------> */
+/* <!----------------------------------------------------------------> */
 
-  @media all and (min-width: 768px) {
-    .app-instructions {
+@media all and (min-width: 768px) {
+    .header-text {
+        margin-left: 10%;
+    }
+
+    .nav__header {
+        font-size: 30px;
+    }
+
+    .instruction-header {
+        padding-top: 20px;
+    }
+
+    .instructions {
+        margin: 10px 0px;
+    }
+
+    .instructions {
         display: flex;
-        flex: wrap;
+        flex-wrap: wrap;
         justify-content: center;
 
-        .__instruction-cards {
-            // width: 22%;
+        .instructions__cards {
+            width: 27%;
+            margin-top: 0px;
+            min-width: 300px;
         }
     }
 
-    .restaurants{
+    .restaurants {
         justify-content: space-evenly;
         flex-direction: row;
     }
 
-    .image-container{
+    .restaurants__card {
         width: 20%;
-
-        .__favorite-icon {
-            position: relative;
-            top: 30px;
-        }
+        min-width: 300px;
     }
-  }
+}
 
 /* <!----------------------------------------------------------------> */
-  @media all and (min-width: 992px) {
-    main {
+@media all and (min-width: 992px) {
+    .header-text {
+        margin-left: 13%;
+    }
+
+    .instructions {
+        margin: auto;
+        width: 82%;
+    }
+
+    .main {
         padding-bottom: 30px;
     }
 
-    .__instruction-cards {
+    .instructions__cards {
         width: 22%;
     }
 
-    .restaurants{
+    .restaurants {
         flex-direction: row;
         row-gap: 50px;
-        margin: 0px 60px;
+        margin: 0px 100px;
     }
 
-    .image-container{
+    .restaurants__card {
         width: 40%;
-
-        .__favorite-icon {
-            position: relative;
-            right: 5px;
-            top: 2px;
-        }
     }
 
-    footer {
+    .footer {
         display: flex;
         justify-content: flex-end;
         column-gap: 5%;
         padding: 35px 0px 5px;
 
-        .footer-title {
+        .footer__title {
             display: flex;
             align-items: center;
             margin: 0px 60px 0px 0px;
             padding: 0px;
             order: 1;
         }
+
         ul {
             display: flex;
             justify-content: right;
             width: 80%;
             column-gap: 3%;
+            margin-right: 20px;
         }
     }
-  }
-
+}

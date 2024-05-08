@@ -15,86 +15,103 @@
     <body>
 
         <!--------------------------------Page Start-------------------------------->
-        <header>
+        <header class="header">
             <h1 class="title">ohmyfood</h1>
         </header>
 
-        <nav>
-            <section class="__location">
-                <i class="fa fa-map-marker __location-icon"></i>
+        <nav class="nav">
+            <section class="nav__location">
+                <i class="fa fa-map-marker nav__location-icon"></i>
                 <p>Paris, Belleville</p>
             </section>
 
-            <section class="__explore-restaurants">
-                <h2>Book the menu you like</h2>
+            <section class="nav__explore-restaurants">
+                <h2 class="nav__header">Book the menu you like</h2>
                 <p>Discover top-of-the-art restaurants we picked for you</p>
-                <button class="__explore-button" type="submit">Explore our restaurants</button>
+                <button class="nav__explore-button" type="submit">Explore our restaurants</button>
             </section>
         </nav>
 
         <!-------------------------------Page Center-------------------------------->
-        <h2 class="instruction-text">How it works</h2>
+        <h2 class="header-text instruction-header">How it works</h2>
 
-        <div class="app-instructions">
-            <div class="__instruction-cards">
-                <span class="__numbered-instructions">1</span>
-                <i class="fa-solid fa-mobile-screen-button __instruction-symbols"></i>
+        <div class="instructions">
+            <div class="instructions__cards">
+                <span class="instructions__numbered">1</span>
+                <i class="fa-solid fa-mobile-screen-button instructions__symbols"></i>
                 Choose a restaurant
             </div>
 
-            <div class="__instruction-cards">
-                <span class="__numbered-instructions">2</span>
-                <i class="fa-solid fa-list-ul __instruction-symbols"></i>
+            <div class="instructions__cards">
+                <span class="instructions__numbered">2</span>
+                <i class="fa-solid fa-list-ul instructions__symbols"></i>
                 Create your menu
             </div>
 
-            <div class="__instruction-cards">
-                <span class="__numbered-instructions">3</span>
-                <i class="fa-solid fa-store __instruction-symbols"></i>
+            <div class="instructions__cards">
+                <span class="instructions__numbered">3</span>
+                <i class="fa-solid fa-store instructions__symbols"></i>
                 Go enjoy it at the restaurant
             </div>
-            
         </div>
         
-        <main>
-            <h2>Restaurants</h2>
+        <main class="main">
+            <h2 class="header-text">Restaurants</h2>
 
             <div class="restaurants">
-                <a href="#" class="image-container">
-                    <img src="./images/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg" alt="" class="images">
-                    <h3>The Full Palette <i class="fa-regular fa-heart fa-lg __favorite-icon"></i></h3>
+                <a href="./pages/the-full-palette.html" class="restaurants__card">
+                    <img src="./images/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg" alt="" class="restaurants__images">
+                    <div class="restaurants_new-tag">New</div>
+                    <h3>The Full Palette</h3>
                     <p>New York</p>
+                    <div class="favorite__icon">
+                        <i class="fa-regular fa-heart empty-heart"></i>
+                        <i class="fa-solid fa-heart full-heart"></i>
+                    </div>
                 </a>
 
-                <a href="#" class="image-container">
-                    <img src="./images/restaurants/stil-u2Lp8tXIcjw-unsplash.jpg" alt="" class="images">
-                    <h3>The Enchanted Plate <i class="fa-regular fa-heart fa-lg __favorite-icon"></i></h3>
+                <a href="./pages/the-enchanted-plate.html" class="restaurants__card">
+                    <img src="./images/restaurants/stil-u2Lp8tXIcjw-unsplash.jpg" alt="" class="restaurants__images">
+                    <div class="restaurants_new-tag">New</div>
+                    <h3>The Enchanted Plate</h3>
                     <p>New York</p>
+                    <div class="favorite__icon">
+                        <i class="fa-regular fa-heart empty-heart"></i>
+                        <i class="fa-solid fa-heart full-heart"></i>
+                    </div>
                 </a>
 
-                <a href="#" class="image-container">
-                    <img src="./images/restaurants/toa-heftiba-DQKerTsQwi0-unsplash.jpg" alt="" class="images">
-                    <h3>Bastille <i class="fa-regular fa-heart fa-lg __favorite-icon"></i></h3>
+                <a href="./pages/bastille.html" class="restaurants__card">
+                    <img src="./images/restaurants/toa-heftiba-DQKerTsQwi0-unsplash.jpg" alt="" class="restaurants__images">
+                    <h3>Bastille</h3>
                     <p>New York</p>
+                    <div class="favorite__icon">
+                        <i class="fa-regular fa-heart empty-heart"></i>
+                        <i class="fa-solid fa-heart full-heart"></i>
+                    </div>
                 </a>
 
-                <a href="#" class="image-container">
-                    <img src="./images/restaurants/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplash.jpg" alt="" class="images">
-                    <h3>Le Gourmand <i class="fa-regular fa-heart fa-lg __favorite-icon"></i></h3>
+                <a href="./pages/le-gourmand.html" class="restaurants__card">
+                    <img src="./images/restaurants/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplash.jpg" alt="" class="restaurants__images">
+                    <h3>Le Gourmand</h3>
                     <p>New York</p>
+                    <div class="favorite__icon">
+                        <i class="fa-regular fa-heart empty-heart"></i>
+                        <i class="fa-solid fa-heart full-heart"></i>
+                    </div>
                 </a>
             </div>
 
         </main>
 
         <!---------------------------------Page End--------------------------------->
-        <footer>
-            <h2 class="footer-title title">ohmyfood</h2>
+        <footer class="footer">
+            <h2 class="footer__title title">ohmyfood</h2>
             <ul>
-                <li><a href="#"><i class="fa-solid fa-utensils __footer-icon"></i>Suggest a restaurant</a></li>
-                <li><a href="#"><i class="fa-solid fa-handshake-angle __footer-icon"></i>Become a partner</a></li>
+                <li><a href="#"><i class="fa-solid fa-utensils footer__icon"></i>Suggest a restaurant</a></li>
+                <li><a href="#"><i class="fa-solid fa-handshake-angle footer__icon"></i>Become a partner</a></li>
                 <li><a href="#">Legal</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="mailto:jose.villalobos08@yahoo.com">Contact</a></li>
             </ul>
         </footer>
 
