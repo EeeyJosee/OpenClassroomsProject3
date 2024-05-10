@@ -23,7 +23,7 @@ $color-scheme: (
 // Color palettes used for different states
 $txt-input-palette: (
     active: (bg: map-get($color-scheme, color-primary),
-    txt: darken($color: map-get($color-scheme, color-primary), $amount: 20%)),
+        txt: darken($color: map-get($color-scheme, color-primary), $amount: 20%)),
     hover: (bg: lighten($color: map-get($color-scheme, color-primary), $amount: 35%)),
     visited: (txt: map-get($color-scheme, color-default)),
 );
@@ -68,12 +68,12 @@ body {
 .title {
     font-family: map-get($font-family, title), Arial;
     margin: 0px 0px 10px 0px;
+    max-width: 400px;
 }
 
 /* <!----------------------------Page Start----------------------------> */
 .header {
     display: flex;
-    width: 100%;
     justify-content: center;
 }
 
@@ -136,6 +136,7 @@ body {
 
             &:hover {
                 background: map-get($color-scheme, color-light-gradient);
+                box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.30);
             }
         }
     }
@@ -164,7 +165,7 @@ body {
     margin: 20px 20px 20px 20px;
     font-weight: 600;
     box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.1);
-    transition: .5s;
+    transition: .55;
 
     .instructions__numbered {
         font-weight: 400;
@@ -255,6 +256,11 @@ body {
             .full-heart {
                 opacity: 1;
             }
+
+            .empty-heart {
+                opacity: 0;
+                transition: .35s;
+            }
         }
 
         .empty-heart,
@@ -271,6 +277,7 @@ body {
             -webkit-background-clip: text;
             color: transparent;
         }
+
     }
 }
 
@@ -311,11 +318,7 @@ body {
 .back-arrow {
     font-size: 25px;
     color: map-get($color-scheme, color-default);
-    align-self: center;
-    margin-bottom: 10px;
-    padding-bottom: 5px;
-    position: absolute;
-    left: 5%;
+    align-self: left;
 
     &:hover {
         color: map-get($color-scheme, color-primary);
@@ -325,18 +328,19 @@ body {
 .restaurant-page-image {
     width: 100%;
     height: auto;
-    object-fit:cover;
-    margin-bottom: -20px;
+    max-height: 350px;
+    object-fit: cover;
+    margin-bottom: -.1%;
 }
 
 .meal-selection {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    max-width: 967px;
+    max-width: 1060px;
     position: relative;
     top: -50px;
-    margin-bottom: -50px;
+    margin: 0px auto -50px;
     padding: 50px 30px;
     background-color: map-get($color-scheme, color-accent);
     border-radius: 50px 50px 0px 0px;
@@ -344,18 +348,32 @@ body {
     .meal-selection__header {
         font-size: 20px;
         display: flex;
-        width: 100%;
+        flex-wrap: wrap;
         justify-content: space-between;
+        width: 100%;
+        margin: 0px auto;
+        max-width: 500px;
+
+        h1 {
+            font-size: 25px;
+            margin-bottom: 0px;
+            min-width: 210px;
+        }
     }
 }
 
 .restaurant-page-favorite-icon {
     position: relative;
-    right: 60px;
+    width: 30px;
 
     &:hover {
         .full-heart {
             opacity: 1;
+        }
+
+        .empty-heart {
+            opacity: 0;
+            transition: .35s;
         }
     }
 
@@ -376,40 +394,85 @@ body {
 }
 
 .meal-course-text {
-    margin: 30px 0px 0px
+    font-weight: 400;
+    font-size: 18px;
+    margin: 30px auto 0px;
+    width: 100%;
+    max-width: 730px;
 }
 
 .underline {
-    width: 40px;
+    width: 45px;
     height: 3px;
-    margin-top: 5px;
+    margin: 5px auto 0px 0px;
     background-color: map-get($color-scheme, color-tertiary);
 }
 
-.food-options {
+.food-option {
     background-color: map-get($color-scheme, color-white);
-    max-width: 768px;
+    height: 70px;
+    width: 100%;
+    max-width: 730px;
     border-radius: 15px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 15px 13px;
-    margin: 10px 0px;
+    margin: 10px auto;
     box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
 
-    h3 {
-        width: 100%;
-        margin: 0px 0px 5px;
+    .content {
+        display: flex;
+        flex-wrap: wrap;
+        height: 70px;
+        justify-content: space-between;
+        padding: 15px 13px;
+        width: calc(100% + 70px);
+
+        &:hover {
+            width: calc(100% + 0px);
+        }
+
+        h3 {
+            margin: 0px auto 5px auto;
+        }
+
+        p {
+            margin: 0px;
+        }
+
+        .food-option__cost {
+            font-weight: 600;
+            margin-left: auto;
+            align-self: flex-end;
+        }
+
+        .checkmark {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: map-get($color-scheme, color-tertiary);
+            margin: -15px 0px;
+            width: 70px;
+            height: 70px;
+            position: relative;
+            right: -14px;
+            border-radius: 0px 14px 14px 0px;
+
+            i {
+                color: map-get($color-scheme, color-tertiary);
+                background: map-get($color-scheme, color-white);
+                border-radius: 20px;
+                width: 15px;
+                height: 15px;
+                padding: 11px;
+
+                &::before {
+                    position: relative;
+                    top: -7px;
+                    right: 6.5px;
+                }
+            }
+        }
     }
 
-    p {
-        margin: 0px;
-    }
-
-    .food-options__cost {
-        font-weight: 600;
-        margin-right: 10px;
-    }
 }
 
 .order-button {
@@ -418,13 +481,15 @@ body {
     box-shadow: 0px 6px 7px 0px rgba(0, 0, 0, 0.227);
     border-radius: 35px;
     padding: 20px 0px;
-    width: 50%;
-    margin: 50px 25% 10px;
+    width: 60%;
+    max-width: 230px;
+    margin: 50px auto 10px;
     border: none;
     cursor: pointer;
 
     &:hover {
         background: map-get($color-scheme, color-light-gradient);
+        box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.30);
     }
 }
 
