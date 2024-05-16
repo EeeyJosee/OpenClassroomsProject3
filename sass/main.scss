@@ -318,8 +318,10 @@ body {
 /* <!-----------------------Restaurant Pages-------------------------> */
 .back-arrow {
     font-size: 25px;
+    margin-top: 5px;
     color: map-get($color-scheme, color-default);
-    align-self: left;
+    position: absolute;
+    left: 2%;
 
     &:hover {
         color: map-get($color-scheme, color-primary);
