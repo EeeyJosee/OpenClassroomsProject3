@@ -1,0 +1,200 @@
+.back-arrow {
+    font-size: 25px;
+    margin-top: 5px;
+    color: map-get($color-scheme, color-default);
+    position: absolute;
+    left: 2%;
+
+    &:hover {
+        color: map-get($color-scheme, color-primary);
+    }
+}
+
+.restaurant-page-image {
+    width: 100%;
+    height: auto;
+    max-height: 350px;
+    object-fit: cover;
+    margin-bottom: -.1%;
+}
+
+.meal-selection {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    max-width: 1060px;
+    position: relative;
+    top: -50px;
+    margin: 0px auto -50px;
+    padding: 50px 30px;
+    background-color: map-get($color-scheme, color-accent);
+    border-radius: 50px 50px 0px 0px;
+
+    .meal-selection__header {
+        font-size: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 100%;
+        margin: 0px auto;
+        max-width: 500px;
+
+        h1 {
+            font-size: 25px;
+            margin-bottom: 0px;
+            min-width: 210px;
+        }
+    }
+}
+
+.restaurant-page-favorite-icon {
+    position: relative;
+    width: 30px;
+
+    &:hover {
+        .full-heart {
+            opacity: 1;
+        }
+
+        .empty-heart {
+            opacity: 0;
+            transition: .35s;
+        }
+    }
+
+    .empty-heart,
+    .full-heart {
+        position: absolute;
+        font-size: 30px;
+    }
+
+    .full-heart {
+        opacity: 0;
+        transition: .35s;
+        background: linear-gradient(0deg, #9356DC 0%, #FF79DA 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+}
+
+.meal-course-text {
+    font-weight: 400;
+    font-size: 18px;
+    margin: 30px auto 0px;
+    width: 100%;
+    max-width: 730px;
+}
+
+.underline {
+    width: 45px;
+    height: 3px;
+    margin: 5px auto 0px 0px;
+    background-color: map-get($color-scheme, color-tertiary);
+}
+
+.food-option {
+    opacity: 0;
+    background-color: map-get($color-scheme, color-white);
+    height: 70px;
+    width: 100%;
+    max-width: 730px;
+    border-radius: 15px;
+    margin: 10px auto;
+    box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+
+    .content {
+        display: flex;
+        flex-wrap: wrap;
+        height: 70px;
+        justify-content: space-between;
+        padding: 15px 13px;
+        width: calc(100% + 70px);
+        transition: .5s;
+
+        &:hover {
+            width: calc(100% + 0px);
+
+            .checkmark i {
+                transform: rotate(2turn);
+                transition: transform .5s;
+            }
+        }
+
+        .food-text {
+            flex: 1;
+            overflow: hidden;
+        }
+
+        h3 {
+            margin: 0px 0px 5px 0px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        p {
+            margin: 0px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .food-option__cost {
+            font-weight: 600;
+            margin-left: 10px;
+            align-self: flex-end;
+        }
+
+        .checkmark {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            background-color: map-get($color-scheme, color-tertiary);
+            margin: -15px 0px;
+            width: 70px;
+            height: 70px;
+            position: relative;
+            right: -14px;
+            border-radius: 0px 14px 14px 0px;
+
+            i {
+                color: map-get($color-scheme, color-tertiary);
+                background: map-get($color-scheme, color-white);
+                border-radius: 20px;
+                width: 25px;
+                height: 25px;
+                padding: 11px;
+
+                &::before {
+                    position: relative;
+                    top: -7px;
+                    right: 6.5px;
+                }
+            }
+        }
+    }
+
+}
+
+.option-one {
+    animation: 1s ease-out 0s 1 slideUp;
+    animation-fill-mode: forwards;
+}
+
+.option-two {
+    animation: 1s ease-out .2s 1 slideUp;
+    animation-fill-mode: forwards;
+}
+
+.option-three {
+    animation: 1s ease-out .4s 1 slideUp;
+    animation-fill-mode: forwards;
+}
+
+.option-four {
+    animation: 1s ease-out .6s 1 slideUp;
+    animation-fill-mode: forwards;
+}

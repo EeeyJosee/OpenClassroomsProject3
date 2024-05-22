@@ -1,0 +1,33 @@
+.introduction__explore-button {
+    background: map-get($color-scheme, color-gradient);
+    color: map-get($color-scheme, color-white);
+    box-shadow: 0px 6px 7px 0px rgba(0, 0, 0, 0.227);
+    border-radius: 25px;
+    padding: 15px 20px;
+    margin: 10px;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+        background: map-get($color-scheme, color-light-gradient);
+        box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.30);
+    }
+}
+
+.order-button {
+    background: map-get($color-scheme, color-gradient);
+    color: map-get($color-scheme, color-white);
+    box-shadow: 0px 6px 7px 0px rgba(0, 0, 0, 0.227);
+    border-radius: 35px;
+    padding: 20px 0px;
+    width: 60%;
+    max-width: 230px;
+    margin: 50px auto 10px;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+        background: map-get($color-scheme, color-light-gradient);
+        box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.30);
+    }
+}

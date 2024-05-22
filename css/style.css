@@ -337,9 +337,6 @@ template {
   display: none;
 }
 
-/* <!------------------------------------------------------------------> */
-/* <!----------------------------abstracts-----------------------------> */
-/* <!------------------------------------------------------------------> */
 @keyframes slideUp {
   0% {
     transform: translateY(20%);
@@ -349,9 +346,6 @@ template {
     opacity: 1;
   }
 }
-/* <!------------------------------------------------------------------> */
-/* <!----------------------------layout--------------------------------> */
-/* <!------------------------------------------------------------------> */
 html {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -376,20 +370,77 @@ body {
   background-color: #fff;
 }
 
-.title {
-  font-family: Shrikhand, Arial;
-  margin: 0px 0px 10px 0px;
-  max-width: 400px;
+.introduction__explore-button {
+  background: linear-gradient(0deg, #9356DC 0%, #FF79DA 100%);
+  color: #fff;
+  box-shadow: 0px 6px 7px 0px rgba(0, 0, 0, 0.227);
+  border-radius: 25px;
+  padding: 15px 20px;
+  margin: 10px;
+  border: none;
+  cursor: pointer;
+}
+.introduction__explore-button:hover {
+  background: linear-gradient(0deg, #a16be0 0%, #ff93e1 100%);
+  box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.3);
 }
 
-/* <!----------------------------Page Start----------------------------> */
+.order-button {
+  background: linear-gradient(0deg, #9356DC 0%, #FF79DA 100%);
+  color: #fff;
+  box-shadow: 0px 6px 7px 0px rgba(0, 0, 0, 0.227);
+  border-radius: 35px;
+  padding: 20px 0px;
+  width: 60%;
+  max-width: 230px;
+  margin: 50px auto 10px;
+  border: none;
+  cursor: pointer;
+}
+.order-button:hover {
+  background: linear-gradient(0deg, #a16be0 0%, #ff93e1 100%);
+  box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.3);
+}
+
+.footer {
+  background-color: #2e2e2e;
+  color: #fff;
+  padding-top: 20px;
+}
+.footer .footer__title {
+  padding-left: 20px;
+  font-size: 17px;
+}
+.footer ul {
+  padding: 0px 0px 16px 20px;
+  margin-bottom: 0px;
+  font-size: 15px;
+}
+.footer li {
+  margin: 8px 0px;
+}
+.footer li .footer__icon {
+  width: 15px;
+  padding-right: 20px;
+  font-size: x-small;
+}
+.footer a {
+  color: #fff;
+}
+
 .header {
   display: flex;
   justify-content: center;
   margin-bottom: 25px;
 }
 
-.nav {
+.title {
+  font-family: Shrikhand, Arial;
+  margin: 0px 0px 10px 0px;
+  max-width: 400px;
+}
+
+.introduction {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -397,7 +448,7 @@ body {
   margin-bottom: 10px;
   background-color: #f5f5f5;
 }
-.nav .nav__location {
+.introduction .introduction__location {
   padding: 5px 0px;
   display: flex;
   flex-wrap: wrap;
@@ -408,42 +459,28 @@ body {
   background-color: #e8e8e8;
   box-shadow: inset 0px 2px 4px 0px rgba(0, 0, 0, 0.227);
 }
-.nav .nav__location .nav__location-icon {
+.introduction .introduction__location .introduction__location-icon {
   margin: 8px 15px 8px 0px;
 }
-.nav .nav__location p {
+.introduction .introduction__location p {
   margin: 8px 0px;
 }
-.nav .nav__explore-restaurants {
+.introduction .introduction__explore-restaurants {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   max-width: 400px;
 }
-.nav .nav__explore-restaurants .nav__header {
+.introduction .introduction__explore-restaurants .introduction__header {
   margin: 36px 0px 16px;
   text-align: center;
   width: 100%;
   font-weight: 800;
 }
-.nav .nav__explore-restaurants p {
+.introduction .introduction__explore-restaurants p {
   text-align: center;
   max-width: 275px;
   width: 100%;
-}
-.nav .nav__explore-restaurants .nav__explore-button {
-  background: linear-gradient(0deg, #9356DC 0%, #FF79DA 100%);
-  color: #fff;
-  box-shadow: 0px 6px 7px 0px rgba(0, 0, 0, 0.227);
-  border-radius: 25px;
-  padding: 15px 20px;
-  margin: 10px;
-  border: none;
-  cursor: pointer;
-}
-.nav .nav__explore-restaurants .nav__explore-button:hover {
-  background: linear-gradient(0deg, #a16be0 0%, #ff93e1 100%);
-  box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.3);
 }
 
 /* <!----------------------------Page Center---------------------------> */
@@ -590,35 +627,6 @@ body {
   color: transparent;
 }
 
-/* <!----------------------------Page End------------------------------> */
-.footer {
-  background-color: #2e2e2e;
-  color: #fff;
-  padding-top: 20px;
-}
-.footer .footer__title {
-  padding-left: 20px;
-  font-size: 17px;
-}
-.footer ul {
-  padding: 0px 0px 16px 20px;
-  margin-bottom: 0px;
-  font-size: 15px;
-}
-.footer li {
-  margin: 8px 0px;
-}
-.footer li .footer__icon {
-  width: 15px;
-  padding-right: 20px;
-  font-size: x-small;
-}
-.footer a {
-  color: #fff;
-}
-
-/* <!----------------------------------------------------------------> */
-/* <!-----------------------Restaurant Pages-------------------------> */
 .back-arrow {
   font-size: 25px;
   margin-top: 5px;
@@ -786,45 +794,25 @@ body {
 }
 
 .option-two {
-  animation: 1s ease-out 0.3s 1 slideUp;
+  animation: 1s ease-out 0.2s 1 slideUp;
   animation-fill-mode: forwards;
 }
 
 .option-three {
-  animation: 1s ease-out 0.6s 1 slideUp;
+  animation: 1s ease-out 0.4s 1 slideUp;
   animation-fill-mode: forwards;
 }
 
 .option-four {
-  animation: 1s ease-out 0.9s 1 slideUp;
+  animation: 1s ease-out 0.6s 1 slideUp;
   animation-fill-mode: forwards;
 }
 
-.order-button {
-  background: linear-gradient(0deg, #9356DC 0%, #FF79DA 100%);
-  color: #fff;
-  box-shadow: 0px 6px 7px 0px rgba(0, 0, 0, 0.227);
-  border-radius: 35px;
-  padding: 20px 0px;
-  width: 60%;
-  max-width: 230px;
-  margin: 50px auto 10px;
-  border: none;
-  cursor: pointer;
-}
-.order-button:hover {
-  background: linear-gradient(0deg, #a16be0 0%, #ff93e1 100%);
-  box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.3);
-}
-
-/* <!----------------------------------------------------------------> */
-/* <!-------------------------Window Sizes---------------------------> */
-/* <!----------------------------------------------------------------> */
 @media all and (min-width: 768px) {
   .header-text {
     margin-left: 10%;
   }
-  .nav__header {
+  .introduction__header {
     font-size: 30px;
   }
   .instruction-header {

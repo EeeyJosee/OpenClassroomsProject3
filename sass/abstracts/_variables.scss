@@ -1,0 +1,35 @@
+$font-family: (
+    title:Shrikhand,
+    text:Roboto
+);
+
+// Color scheme used for the project
+$color-scheme: (
+    color-primary: #9356DC,
+    color-secondary: #FF79DA,
+    color-tertiary: #99E2D0,
+    color-accent: #f5f5f5,
+    color-white: #fff,
+    color-default: #000000,
+    color-gradient: linear-gradient(0deg, #9356DC 0%, #FF79DA 100%),
+    color-light-gradient: linear-gradient(0deg, lighten($color: #9356DC, $amount: 5%) 0%, lighten($color: #FF79DA, $amount: 5%) 100%)
+);
+
+// Color palettes used for different states
+$txt-input-palette: (
+    active: (bg: map-get($color-scheme, color-primary),
+    txt: darken($color: map-get($color-scheme, color-primary), $amount: 20%)),
+    hover: (bg: lighten($color: map-get($color-scheme, color-primary), $amount: 35%)),
+    visited: (txt: map-get($color-scheme, color-default)),
+);
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(20%);
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

@@ -1,0 +1,9 @@
+@mixin txt-input-palette($palettes) {
+    @each $state, $palette in $palettes {
+        &:#{$state} {
+            background-color: map-get($palette, bg);
+            color: map-get($palette, txt);
+            transition: .35s;
+        }
+    }
+}
