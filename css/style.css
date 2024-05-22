@@ -808,6 +808,11 @@ body {
   animation-fill-mode: forwards;
 }
 
+.option-five {
+  animation: 1s ease-out 0.8s 1 slideUp;
+  animation-fill-mode: forwards;
+}
+
 @media all and (min-width: 768px) {
   .header-text {
     margin-left: 10%;
