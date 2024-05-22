@@ -340,6 +340,15 @@ template {
 /* <!------------------------------------------------------------------> */
 /* <!----------------------------abstracts-----------------------------> */
 /* <!------------------------------------------------------------------> */
+@keyframes slideUp {
+  0% {
+    transform: translateY(20%);
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 /* <!------------------------------------------------------------------> */
 /* <!----------------------------layout--------------------------------> */
 /* <!------------------------------------------------------------------> */
@@ -697,6 +706,7 @@ body {
 }
 
 .food-option {
+  opacity: 0;
   background-color: #fff;
   height: 70px;
   width: 100%;
@@ -768,6 +778,26 @@ body {
   position: relative;
   top: -7px;
   right: 6.5px;
+}
+
+.option-one {
+  animation: 1s ease-out 0s 1 slideUp;
+  animation-fill-mode: forwards;
+}
+
+.option-two {
+  animation: 1s ease-out 0.3s 1 slideUp;
+  animation-fill-mode: forwards;
+}
+
+.option-three {
+  animation: 1s ease-out 0.6s 1 slideUp;
+  animation-fill-mode: forwards;
+}
+
+.option-four {
+  animation: 1s ease-out 0.9s 1 slideUp;
+  animation-fill-mode: forwards;
 }
 
 .order-button {
