@@ -1,12 +1,12 @@
-@import '../sass/vendors/normalize';
-@import '../sass/abstracts/variables';
-@import '../sass/abstracts/mixins';
-@import '../sass/base/typography';
-@import '../sass/components/buttons';
-@import '../sass/layout/footer';
-@import '../sass/layout/header';
-@import '../sass/pages/homepage';
-@import '../sass/pages/restaurant-pages';
+@import 'vendors/normalize';
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+@import 'base/typography';
+@import 'components/buttons';
+@import 'layout/footer';
+@import 'layout/header';
+@import 'pages/homepage';
+@import 'pages/restaurant-pages';
 
 
 @media all and (min-width: 768px) {

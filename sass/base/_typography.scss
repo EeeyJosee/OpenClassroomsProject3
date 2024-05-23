@@ -16,7 +16,7 @@ html {
 
 body {
     max-width: 1440px;
-    margin: 20px auto 0px auto;
+    margin: auto;
     overflow-x: hidden;
     font-family: map-get($font-family, text), Helvetica;
     background-color: map-get($color-scheme, color-white);
